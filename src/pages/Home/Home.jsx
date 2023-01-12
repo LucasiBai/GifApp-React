@@ -1,27 +1,19 @@
-import { useState, useEffect } from "react";
-import { getGifs } from "../../services/dataService";
+import { useGifs } from "../../hooks/useGifs";
+
+import SearchInput from "../../contexts/SearchInput/SearchInput";
 
 const Home = () => {
-	const [gifs, setGifs] = useState([]);
-
-	const getData = async () => {
-		const data = await getGifs();
-
-		setGifs(data["data"]);
-	};
-
-	useEffect(() => {
-		getData();
-	}, []);
+	const { gifs } = useGifs({ query: "robin" });
 
 	return (
-		<div>
+		<main>
+			<SearchInput />
 			<ul>
 				{gifs?.map((gif, idx) => (
-					<img src={gif.images.downsized.url} key={idx} />
+					<img src={gif.images.downsized.url} alt={gif.title} key={idx} />
 				))}
 			</ul>
-		</div>
+		</main>
 	);
 };
 

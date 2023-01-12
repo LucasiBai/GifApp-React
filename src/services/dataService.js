@@ -3,13 +3,7 @@ import { environment } from "../environment";
 const API = environment.API;
 const APIKEY = environment.APIKEY;
 
-const getGifs = async (
-	query = "batman",
-	limit = "10",
-	offset = "0",
-	rating = "g",
-	lang = "en",
-) => {
+const getGifs = async (query, limit, offset, rating, lang) => {
 	const url =
 		API +
 		`/search?api_key=${APIKEY}&q=${query}&limit=${limit}&offset=${offset}&rating=${rating}&lang=${lang}`;
