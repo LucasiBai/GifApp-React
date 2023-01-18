@@ -6,17 +6,22 @@ import SearchInput from "../../components/SearchInput/SearchInput";
 import GifList from "../../components/GifList/GifList";
 
 const Home = () => {
-	const { gifs } = useGifs({ query: "robin" });
+	const lastQuery = localStorage.getItem("lastSearch");
+
+	const { gifs } = useGifs({ query: lastQuery || "batman" });
 
 	const navigate = useNavigate();
 
-	const searchGifs = ({ query }) => {
-		navigate(`/search?q=${query}`);
+	const searchGifs = ({ query, rating }) => {
+		localStorage.setItem("lastSearch", query);
+
+		navigate(`/search?q=${query}&rating=${rating}`);
 	};
 
 	return (
 		<main>
 			<SearchInput onSubmit={searchGifs} />
+			{lastQuery ? <h5>Última búsqueda</h5> : <></>}
 			<GifList gifs={gifs} />
 		</main>
 	);

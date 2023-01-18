@@ -14,4 +14,13 @@ const getGifs = async (query, limit, offset, rating, lang) => {
 	return data;
 };
 
-export { getGifs };
+const getGif = async (gifId) => {
+	const url = API + `/${gifId}?api_key=${APIKEY}`;
+
+	const res = await fetch(url);
+	const data = await res.json();
+
+	return data;
+};
+
+export { getGifs, getGif };

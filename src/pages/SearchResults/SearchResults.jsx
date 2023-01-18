@@ -17,12 +17,15 @@ const SearchResults = () => {
 	const navigate = useNavigate();
 
 	const searchGifs = ({ query, rating }) => {
+		localStorage.setItem("lastSearch", query);
+
 		navigate(`/search?q=${query}&rating=${rating}`);
 	};
 
 	return (
 		<main>
 			<SearchInput onSubmit={searchGifs} />
+			<h5>Results of '{query}'</h5>
 			<GifList gifs={gifs} />
 		</main>
 	);
