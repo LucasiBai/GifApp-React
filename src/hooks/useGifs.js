@@ -1,21 +1,23 @@
 import { useState, useEffect, useCallback } from "react";
 
-import { getGifs } from "../services/dataService";
+import { getGif, getGifs } from "../services/dataService";
 
-const useGifs = ({ query, limit, offset, rating, lang }) => {
+const useGifs = ({ query, limit, offset, rating, lang, id }) => {
 	const [gifs, setGifs] = useState([]);
 
 	const getData = useCallback(async () => {
-		const data = await getGifs(query, limit, offset, rating, lang);
+		const data = !id
+			? await getGifs(query, limit, offset, rating, lang)
+			: await getGif(id);
 
 		setGifs(data["data"]);
-	}, [query, limit, offset, rating, lang]);
+	}, [query, limit, offset, rating, lang, id]);
 
 	useEffect(() => {
 		getData();
 	}, [getData]);
 
-	return { gifs };
+	return [gifs];
 };
 
 export { useGifs };

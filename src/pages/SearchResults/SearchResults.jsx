@@ -12,7 +12,7 @@ const SearchResults = () => {
 	const query = queryParams.get("q");
 	const rating = queryParams.get("rating");
 
-	const { gifs } = useGifs({ query, rating });
+	const [gifs] = useGifs({ query, rating });
 
 	const navigate = useNavigate();
 

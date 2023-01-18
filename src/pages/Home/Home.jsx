@@ -8,7 +8,7 @@ import GifList from "../../components/GifList/GifList";
 const Home = () => {
 	const lastQuery = localStorage.getItem("lastSearch");
 
-	const { gifs } = useGifs({ query: lastQuery || "batman" });
+	const [gifs] = useGifs({ query: lastQuery || "batman" });
 
 	const navigate = useNavigate();
 

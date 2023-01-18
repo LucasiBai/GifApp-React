@@ -1,23 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-
 import { useParams } from "react-router-dom";
-
-import { getGif } from "../../services/dataService";
+import { useGifs } from "../../hooks/useGifs";
 
 const GifDetail = () => {
-	const { gifId } = useParams();
+	const { gifId: id } = useParams();
 
-	const [gifData, setGifData] = useState({});
-
-	const getData = useCallback(async () => {
-		const data = await getGif(gifId);
-
-		setGifData(data["data"]);
-	}, [gifId]);
-
-	useEffect(() => {
-		getData();
-	}, [getData, gifId]);
+	const [gifData] = useGifs({ id });
 
 	return (
 		<div>
