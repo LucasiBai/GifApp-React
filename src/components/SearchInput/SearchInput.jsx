@@ -2,7 +2,8 @@ import { useState } from "react";
 
 const SearchInput = ({ onSubmit }) => {
 	const [formData, setFormData] = useState({
-		"gif-name": "",
+		query: "",
+		rating: "g",
 	});
 
 	const handleChange = (e) => {
@@ -24,10 +25,16 @@ const SearchInput = ({ onSubmit }) => {
 		<form onSubmit={handleSubmit}>
 			<input
 				type="text"
-				name="gif-name"
+				name="query"
 				onChange={handleChange}
-				value={formData["gif-name"]}
+				value={formData["query"]}
 			/>
+			<select name="rating" value={formData.rating} onChange={handleChange}>
+				<option value="g">g</option>
+				<option value="pg">pg</option>
+				<option value="pg-13">pg-13</option>
+				<option value="r">r</option>
+			</select>
 			<input type="submit" />
 		</form>
 	);

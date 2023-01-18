@@ -9,7 +9,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Navigate to={"/home"} />} />
 				<Route path="/home" element={<Home />} />
-				<Route path="/search/:query" element={<SearchResults />} />
+				<Route path="/search" element={<SearchResults />} />
 			</Routes>
 		</BrowserRouter>
 	);
