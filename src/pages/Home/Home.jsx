@@ -1,28 +1,17 @@
-import { useNavigate } from "react-router-dom";
-
 import { useGifs } from "../../hooks/useGifs";
 
-import SearchInput from "../../components/SearchInput/SearchInput";
-import GifList from "../../components/GifList/GifList";
+import GifSearcher from "../../components/GifSearcher/GifSearcher";
 
 const Home = () => {
 	const lastQuery = localStorage.getItem("lastSearch");
 
 	const [gifs] = useGifs({ query: lastQuery || "batman" });
 
-	const navigate = useNavigate();
-
-	const searchGifs = ({ query, rating }) => {
-		localStorage.setItem("lastSearch", query);
-
-		navigate(`/search?q=${query}&rating=${rating}`);
-	};
-
 	return (
 		<main>
-			<SearchInput onSubmit={searchGifs} />
-			{lastQuery ? <h5>Última búsqueda</h5> : <></>}
-			<GifList gifs={gifs} />
+			<GifSearcher gifs={gifs}>
+				{lastQuery ? <h5>Últimos resultados</h5> : <h5>Contenido Popular</h5>}
+			</GifSearcher>
 		</main>
 	);
 };
