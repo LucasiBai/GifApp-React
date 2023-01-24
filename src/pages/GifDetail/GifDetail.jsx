@@ -7,9 +7,9 @@ const GifDetail = () => {
 	const [gifData] = useGifs({ id });
 
 	return (
-		<div>
+		<main>
 			<img src={gifData?.images?.downsized.url} alt={gifData?.title} />
-		</div>
+		</main>
 	);
 };
 

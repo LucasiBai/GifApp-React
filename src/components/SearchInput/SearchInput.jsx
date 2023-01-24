@@ -6,6 +6,10 @@ const SearchInput = ({ onSubmit }) => {
 		rating: "g",
 	});
 
+	const errors = {
+		empty: false,
+	};
+
 	const handleChange = (e) => {
 		const { value, name } = e.target;
 
@@ -17,18 +21,29 @@ const SearchInput = ({ onSubmit }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		const { query } = formData;
 
-		onSubmit(formData);
+		if (query.length > 1) {
+			errors["empty"] = false;
+			onSubmit(formData);
+		} else {
+			errors["empty"] = true;
+		}
 	};
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<input
-				type="text"
-				name="query"
-				onChange={handleChange}
-				value={formData["query"]}
-			/>
+			<div>
+				<input
+					type="text"
+					name="query"
+					onChange={handleChange}
+					value={formData["query"]}
+				/>
+				{errors.empty && (
+					<label>El input debe contener al menos 2 caracteres</label>
+				)}
+			</div>
 			<select name="rating" value={formData.rating} onChange={handleChange}>
 				<option value="g">g</option>
 				<option value="pg">pg</option>

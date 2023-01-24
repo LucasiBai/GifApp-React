@@ -1,0 +1,13 @@
+.gif-item__box {
+	position: relative;
+}
+.gif-item__box h6 {
+	position: absolute;
+	z-index: 10;
+	bottom: 0.2rem;
+	left: 0;
+	color: aliceblue;
+	background-color: rgba(0, 0, 0, 0.493);
+	font-weight: 500;
+	padding: 0.2rem;
+}

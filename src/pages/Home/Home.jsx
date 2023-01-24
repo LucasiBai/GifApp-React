@@ -1,16 +1,20 @@
 import { useGifs } from "../../hooks/useGifs";
 
 import GifSearcher from "../../components/GifSearcher/GifSearcher";
+import { useContext } from "react";
+import { generalContext } from "../../contexts/generalContext";
 
 const Home = () => {
-	const lastQuery = localStorage.getItem("lastSearch");
+	const { lastSearch } = useContext(generalContext);
 
-	const [gifs] = useGifs({ query: lastQuery || "batman" });
+	console.log(lastSearch);
+
+	const [gifs] = useGifs({ query: lastSearch });
 
 	return (
 		<main>
 			<GifSearcher gifs={gifs}>
-				{lastQuery ? <h5>Últimos resultados</h5> : <h5>Contenido Popular</h5>}
+				{lastSearch ? <h5>Últimos resultados</h5> : <h5>Contenido Popular</h5>}
 			</GifSearcher>
 		</main>
 	);
