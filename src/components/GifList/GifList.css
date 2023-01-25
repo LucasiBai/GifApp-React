@@ -1,7 +1,7 @@
 .gif-list__box {
 	margin: 0;
 	display: grid;
-	grid-template-rows: 1fr auto;
-	margin-bottom: 10px;
-	break-inside: avoid;
+	width: 90vw;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1rem;
 }

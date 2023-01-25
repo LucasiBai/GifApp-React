@@ -1,5 +1,7 @@
 .gif-item__box {
 	position: relative;
+	height: 200px;
+	overflow: hidden;
 }
 .gif-item__box h6 {
 	position: absolute;
@@ -10,4 +12,9 @@
 	background-color: rgba(0, 0, 0, 0.493);
 	font-weight: 500;
 	padding: 0.2rem;
+}
+
+.gif-item__box img {
+	object-fit: cover;
+	width: 100%;
 }

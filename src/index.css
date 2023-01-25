@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: rgb(26, 25, 75);
+	font-family: "Noto Sans", sans-serif;
 }
 * {
 	padding: 0;
