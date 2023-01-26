@@ -5,7 +5,7 @@ import "./GifItem.css";
 
 const GifItem = ({ gif }) => {
 	return (
-		<span className="gif-item__box">
+		<span className="gif-item__box  ">
 			<Link to={`/gifs/${gif.id}`}>
 				<img src={gif.images.downsized.url} alt={gif.title} />
 				<h6>{gif.title}</h6>
