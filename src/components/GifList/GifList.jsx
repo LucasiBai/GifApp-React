@@ -8,6 +8,7 @@ const GifList = ({ gifs }) => {
 			{gifs?.map((gif, idx) => (
 				<GifItem gif={gif} key={idx} />
 			))}
+			<div></div>
 		</div>
 	);
 };

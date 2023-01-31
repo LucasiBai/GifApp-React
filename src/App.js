@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
-import { GeneralProvider } from "./contexts/generalContext";
+import DefaultProvider from "./contexts/DefaultProvider";
 import GifDetail from "./pages/GifDetail/GifDetail";
 import Home from "./pages/Home/Home";
 import SearchResults from "./pages/SearchResults/SearchResults";
 
 function App() {
 	return (
-		<GeneralProvider>
+		<DefaultProvider>
 			<BrowserRouter>
 				<Header />
 				<Routes>
@@ -18,7 +18,7 @@ function App() {
 					<Route path="/gifs/:gifId" element={<GifDetail />} />
 				</Routes>
 			</BrowserRouter>
-		</GeneralProvider>
+		</DefaultProvider>
 	);
 }
 

@@ -9,7 +9,8 @@ header a {
 }
 
 header h1 {
+	font-family: "Amatic SC", cursive;
 	color: white;
 	font-weight: 800;
-	font-size: 50px;
+	font-size: 60px;
 }

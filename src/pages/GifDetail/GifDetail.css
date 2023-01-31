@@ -1,0 +1,19 @@
+.gif-detail__box {
+	display: flex;
+	justify-content: center;
+}
+
+.gif-detail__box article {
+	max-width: 700px;
+	width: 95%;
+}
+
+.gif-detail__box img {
+	object-fit: cover;
+	width: 700px;
+}
+
+.gif-detail__box h4 {
+	color: white;
+	font-weight: 500;
+}
