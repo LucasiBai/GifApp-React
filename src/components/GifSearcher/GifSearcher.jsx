@@ -1,13 +1,13 @@
 import React from "react";
 
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-
 import { useSearcher } from "../../hooks/useSearcher";
 
 import GifList from "../GifList/GifList";
 import SearchInput from "../SearchInput/SearchInput";
 
 import "./GifSearcher.css";
+import "react-loading-skeleton/dist/skeleton.css";
+import GifSkeleton from "../GifSkeleton/GifSkeleton";
 
 export default function GifSearcher({ gifs, children, isLoading = false }) {
 	const searchGifs = useSearcher();
@@ -17,12 +17,23 @@ export default function GifSearcher({ gifs, children, isLoading = false }) {
 			<SearchInput onSubmit={searchGifs} />
 			{children}
 			{isLoading ? (
-				<div>
-					<SkeletonTheme baseColor="#202020" highlightColor="#444">
-						<p>
-							<Skeleton count={3} />
-						</p>
-					</SkeletonTheme>
+				<div className="gif-list__box">
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
+					<GifSkeleton />
 				</div>
 			) : (
 				<GifList gifs={gifs} />

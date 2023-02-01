@@ -1,16 +1,24 @@
 import { useGifs } from "../../hooks/useGifs";
 
 import GifSearcher from "../../components/GifSearcher/GifSearcher";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { generalContext } from "../../contexts/generalContext";
 import { useState } from "react";
 
 const Home = () => {
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const { lastSearch } = useContext(generalContext);
 
 	const [gifs] = useGifs({ query: lastSearch });
+
+	useEffect(() => {
+		if (gifs.length < 1) {
+			setIsLoading(true);
+		} else {
+			setIsLoading(false);
+		}
+	}, [gifs]);
 
 	return (
 		<main>
