@@ -2,6 +2,7 @@
 	position: relative;
 	height: 200px;
 	overflow: hidden;
+	border-radius: 5px;
 }
 .gif-item__box h6 {
 	position: absolute;
